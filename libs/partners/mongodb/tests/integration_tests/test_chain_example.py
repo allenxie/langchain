@@ -20,7 +20,7 @@ from ..utils import PatchedMongoDBAtlasVectorSearch
 CONNECTION_STRING = os.environ.get("MONGODB_ATLAS_URI")
 DB_NAME = "langchain_test_db"
 COLLECTION_NAME = "langchain_test_chain_example"
-INDEX_NAME = "vector_index_with_filter"
+INDEX_NAME = "vector_index"
 DIMENSIONS = 1536
 TIMEOUT = 60.0
 INTERVAL = 0.5
@@ -59,7 +59,7 @@ def test_chain(
 ) -> None:
     """Demonstrate usage of MongoDBAtlasVectorSearch in a realistic chain
 
-    Follows example in the docs: https://python.langchain.com/v0.2/docs/how_to/hybrid/
+    Follows example in the docs: https://python.langchain.com/docs/how_to/hybrid/
 
     Requires OpenAI_API_KEY for embedding and chat model.
     Requires INDEX_NAME to have been set up on MONGODB_ATLAS_URI

@@ -74,6 +74,8 @@ def _len_check_if_sized(x: Any, y: Any, x_name: str, y_name: str) -> None:
 class FAISS(VectorStore):
     """FAISS vector store integration.
 
+    See [The FAISS Library](https://arxiv.org/pdf/2401.08281) paper.
+
     Setup:
         Install ``langchain_community`` and ``faiss-cpu`` python packages.
 
@@ -1288,7 +1290,7 @@ class FAISS(VectorStore):
         relevance_score_fn = self._select_relevance_score_fn()
         if relevance_score_fn is None:
             raise ValueError(
-                "normalize_score_fn must be provided to"
+                "relevance_score_fn must be provided to"
                 " FAISS constructor to normalize scores"
             )
         docs_and_scores = self.similarity_search_with_score(
@@ -1317,7 +1319,7 @@ class FAISS(VectorStore):
         relevance_score_fn = self._select_relevance_score_fn()
         if relevance_score_fn is None:
             raise ValueError(
-                "normalize_score_fn must be provided to"
+                "relevance_score_fn must be provided to"
                 " FAISS constructor to normalize scores"
             )
         docs_and_scores = await self.asimilarity_search_with_score(
